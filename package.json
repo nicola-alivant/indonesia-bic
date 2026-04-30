@@ -1,0 +1,41 @@
+{
+  "name": "indonesia-bic",
+  "version": "1.0.0",
+  "description": "A complete database of BIC / SWIFT codes for banks in Indonesia",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "ts-node test/index.test.ts"
+  },
+  "keywords": [
+    "swift",
+    "bic",
+    "bank",
+    "indonesia",
+    "swift-code",
+    "banking",
+    "finance",
+    "typescript"
+  ],
+  "author": "nicola-alivant",
+  "license": "MIT",
+  "files": [
+    "dist/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicola-alivant/indonesia-bic"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  }
+}
