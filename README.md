@@ -39,6 +39,9 @@ import * as bankCodes from 'indonesia-bic';
 bankCodes.getAll();
 // => [{ ... }, ...]
 
+bankCodes.globalSearch('AMID')
+// => [{ ... }, ...]
+
 bankCodes.findBySwiftCode('SCBLIDJXSBY');
 // => { ... }
 
@@ -106,35 +109,38 @@ All search functions follow these rules:
 ### `getAll()` → `BankData[]`
 Returns all 618 bank data.
 
+### `globalSearch(keyword)` → `BankData[]`
+Returns all bank data that matches the keyword. ***Partial match***, case-insensitive.
+
 ### `findByBankCode(bankCode)` → `BankData | null`
-Find bank by bank code. Exact match, case-insensitive. Returns `null` if not found.
+Find bank by bank code. ***Exact match***, case-insensitive. Returns `null` if not found.
 
 ### `findBySwiftCode(swiftCode)` → `BankData | null`
-Find bank by BIC / SWIFT code. Exact match, case-insensitive. Returns `null` if not found.
+Find bank by BIC / SWIFT code. ***Exact match***, case-insensitive. Returns `null` if not found.
 
 ### `findByBankName(name)` → `BankData[]`
-Find bank by name. Partial match, case-insensitive.
+Find bank by name. ***Partial match***, case-insensitive.
 
 ### `findByLocationCode(locationCode)` → `BankData[]`
-Find bank by location code. Exact match, case-insensitive.
+Find bank by location code. ***Partial match***, case-insensitive.
 
 ### `findByAddress(address)` → `BankData[]`
-Find bank by address. Partial match, case-insensitive.
+Find bank by address. ***Partial match***, case-insensitive.
 
 ### `findByCity(city)` → `BankData[]`
-Find bank by city. Partial match, case-insensitive.
+Find bank by city. ***Partial match***, case-insensitive.
 
 ### `findByBranchName(branchName)` → `BankData[]`
-Find bank by branch name. Partial match, case-insensitive.
+Find bank by branch name. ***Partial match***, case-insensitive.
 
 ### `findByBranchCode(branchCode)` → `BankData[]`
-Find bank by branch code. Partial match, case-insensitive.
+Find bank by branch code. ***Partial match***, case-insensitive.
 
 ### `findByPostcode(postcode)` → `BankData[]`
 Find bank by postcode. Exact match.
 
 ### `search(keyword)` → `BankData[]`
-Search keyword in all columns. Partial match, case-insensitive. Useful for search box in UI.
+Search keyword in all columns. ***Partial match***, case-insensitive. Useful for search box in UI.
 
 ### `getCities()` → `string[]`
 Get all unique cities, sorted A-Z.

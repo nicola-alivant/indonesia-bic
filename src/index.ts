@@ -7,6 +7,23 @@ export function getAll(): BankData[] {
   return banks;
 }
 
+export function globalSearch(keyword: string): BankData[] {
+  if (!keyword) return [];
+  const query = keyword.trim().toLowerCase();
+
+  return banks.filter((entry: BankData) =>
+    entry.bank_name.toLowerCase().includes(query) ||
+    entry.bank_code.toLowerCase().includes(query) ||
+    entry.swift_code.toLowerCase().includes(query) ||
+    entry.location_code.toLowerCase().includes(query) ||
+    entry.address?.toLowerCase().includes(query) ||
+    entry.city.toLowerCase().includes(query) ||
+    entry.branch?.toLowerCase().includes(query) ||
+    entry.branch_code?.toLowerCase().includes(query) ||
+    entry.post_code === Number(query)
+  );
+}
+
 export function findByBankName(name: string): BankData[] {
   if (!name || typeof name !== 'string') return [];
   const query = name.trim().toLowerCase();
@@ -16,19 +33,19 @@ export function findByBankName(name: string): BankData[] {
 export function findByBankCode(bankCode: string): BankData | null {
   if (!bankCode || typeof bankCode !== 'string') return null;
   const query = bankCode.trim().toLowerCase();
-  return banks.find((entry) => entry.bank_code.toLowerCase() === query) ?? null;
+  return banks.find((entry) => entry.bank_code.toLowerCase().includes(query)) ?? null;
 }
 
 export function findBySwiftCode(swiftCode: string): BankData | null {
   if (!swiftCode || typeof swiftCode !== 'string') return null;
   const query = swiftCode.trim().toLowerCase();
-  return banks.find((entry) => entry.swift_code.toLowerCase() === query) ?? null;
+  return banks.find((entry) => entry.swift_code.toLowerCase().includes(query)) ?? null;
 }
 
 export function findByLocationCode(locationCode: string): BankData[] {
   if (!locationCode || typeof locationCode !== 'string') return [];
   const query = locationCode.trim().toLowerCase();
-  return banks.filter((entry) => entry.location_code.toLowerCase() === query);
+  return banks.filter((entry) => entry.location_code.toLowerCase().includes(query));
 }
 
 export function findByAddress(address: string): BankData[] {

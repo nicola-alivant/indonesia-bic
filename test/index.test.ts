@@ -40,6 +40,21 @@ test('getAll() entries have required fields', () => {
   assert(typeof entry.code_status === 'boolean', 'missing code_status');
 });
 
+test('globalSearch() entries have required fields', () => {
+  const entry: BankData = swift.globalSearch('AMID')[0];
+  assert(entry.id, 'missing id');
+  assert(entry.bank_name, 'missing bank_name');
+  assert(entry.bank_code, 'missing bank_code');
+  assert(entry.swift_code, 'missing swift_code');
+  assert(entry.location_code, 'missing location_code');
+  assert(entry.address !== null, 'missing address');
+  assert(entry.city, 'missing city');
+  assert(entry.branch === null, 'missing branch');
+  assert(entry.branch_code === null, 'missing branch_code');
+  assert(entry.post_code !== null, 'missing post_code');
+  assert(typeof entry.code_status === 'boolean', 'missing code_status');
+});
+
 test('findByBankName() returns partial matches', () => {
   const results: BankData[] = swift.findByBankName('BANK');
   assert(results.length > 0, 'should find results');
