@@ -2,7 +2,7 @@
 
 > Complete database of BIC / SWIFT codes for banks in Indonesia.
 
-> _Version 1.0.0 - Last data source updated: 2026-04-29._
+> _Version 1.1.0 - Last data source updated: 2026-04-29._
 
 [![npm version](https://img.shields.io/npm/v/indonesia-bic.svg)](https://www.npmjs.com/package/indonesia-bic)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
