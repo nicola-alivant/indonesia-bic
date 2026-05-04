@@ -1,13 +1,13 @@
 {
   "name": "indonesia-bic",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A complete database of BIC / SWIFT codes for banks in Indonesia",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "ts-node test/index.test.ts",
-  "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "swift",
